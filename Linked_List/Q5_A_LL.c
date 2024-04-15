@@ -100,9 +100,32 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* Split the singly linked list into two sublists */
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
-	/* add your code here */
+	int index = 0;
+
+	ListNode * cur;
+	cur = ll -> head;
+
+	/* Front Linked List */
+	for (int i = 0; i < (ll -> size / 2) + 1; i++) {
+		insertNode(resultFrontList, index, cur -> item);
+
+		cur = cur -> next;
+		index++;
+	}
+
+	index = 0;
+
+	/* Back Linked List */
+	for (int i = resultFrontList -> size; i < ll -> size ; i++) {
+		insertNode(resultBackList, index, cur -> item);
+
+		cur = cur -> next;
+		index++;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
