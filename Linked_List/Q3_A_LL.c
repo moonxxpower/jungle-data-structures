@@ -84,9 +84,31 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* Move all the odd integers to the back of the linked list */
 void moveOddItemsToBack(LinkedList *ll)
 {
-	/* add your code here */
+	int index = 0;
+
+	ListNode * cur;
+	cur = ll -> head;
+
+	ListNode * temp = NULL;
+
+	for (int i = 0; i < ll -> size; i++) {
+		if (cur -> item % 2 == 1) {
+			temp = cur -> next;
+
+			insertNode(ll, ll -> size, cur -> item);
+			removeNode(ll, index);
+			
+			cur = temp;
+		} 
+		else {
+			cur = cur -> next;
+			index++;
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
