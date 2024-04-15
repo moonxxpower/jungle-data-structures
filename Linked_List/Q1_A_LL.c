@@ -71,7 +71,7 @@ int main()
 		case 3:
 			printf("The resulting sorted linked list is: ");
 			printList(&ll);
-			removeAllItems(&ll);
+			// removeAllItems(&ll);
 			break;
 		case 0:
 			removeAllItems(&ll);
@@ -88,9 +88,27 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* Insert it into the linked list in ascending order */
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* add your code here */
+	int index = 0;
+
+	ListNode * temp;
+	temp = ll -> head;
+
+	/* insertNode를 쓰기 위해 알맞은 위치의 index 찾기 */
+	while(temp != NULL && temp -> item < item) {
+		temp = temp -> next;
+		index++;
+	}
+
+	if(temp != NULL && temp -> item == item) {
+		index = -1;
+	}
+
+	insertNode(ll, index, item);
+	return index;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
