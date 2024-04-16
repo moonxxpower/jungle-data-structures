@@ -101,9 +101,24 @@ int main()
 
 /////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* check whether numbers in the stack are pairwise consecutive or not */
 int isStackPairwiseConsecutive(Stack *s)
 {
-  /* add your code here */
+    if (isEmptyStack(s) || ((s->ll.size) % 2 == 1)) {
+        return 0;
+    }
+
+    while (!isEmptyStack(s)) {
+        int pre = pop(s);
+        int cur = pop(s);
+
+        if (abs(pre - cur) != 1) {
+            return 0;
+        }
+    }
+
+    return 1;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
