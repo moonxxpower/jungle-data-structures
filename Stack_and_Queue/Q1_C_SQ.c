@@ -114,14 +114,23 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* create a queue by enqueuing all integers whick are stored in the linked list */
 void createQueueFromLinkedList(LinkedList *ll, Queue *q)
 {
-	/* add your code here */
+	ListNode * cur;
+	cur = ll -> head;
+
+	for (int i = 0; i < ll -> size; i++) {
+		enqueue(q, cur -> item);
+		cur = cur -> next;
+	}
 }
 
+/* add your code here */
 void removeOddValues(Queue *q)
 {
-	/* add your code here */
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////
