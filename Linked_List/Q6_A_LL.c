@@ -86,9 +86,25 @@ int main()
 
 ////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* Move the node with the largest stored value to the front of the list */
 int moveMaxToFront(ListNode **ptrHead)
 {
-    /* add your code here */
+	ListNode * cur, * max, * maxPre;
+	cur = * ptrHead;
+	max = * ptrHead;
+	maxPre = NULL;
+
+	while (cur -> next != NULL) {
+		if (cur -> item > max -> item) {
+			max = cur -> next;
+			maxPre = cur; 
+		}
+		cur = cur -> next;
+	}
+	maxPre -> next = max -> next;
+	max -> next = * ptrHead;
+	* ptrHead = max;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
