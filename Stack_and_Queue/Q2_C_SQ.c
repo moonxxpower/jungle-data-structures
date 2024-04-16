@@ -111,14 +111,23 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* create a stack by pushing all integers that are storing in the linked list */
 void createStackFromLinkedList(LinkedList *ll, Stack *s)
 {
-    /* add your code here */
+    ListNode * cur;
+	cur = ll -> head;
+
+	for (int i = 0; i < ll -> size; i++) {
+		push(s, cur -> item);
+		cur = cur -> next;
+	}
 }
 
+/* add your code here */
 void removeEvenValues(Stack *s)
 {
-	/* add your code here */
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////
