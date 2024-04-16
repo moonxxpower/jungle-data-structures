@@ -85,9 +85,27 @@ int main()
 
 ////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* Recursively reverse the given linked list by changing its next pointer and its head pointer */
 void RecursiveReverse(ListNode **ptrHead)
 {
-	/* add your code here */
+	ListNode * cur, * rest;
+
+	cur = * ptrHead;
+	rest = cur -> next;
+	
+	if (rest == NULL) {
+		return;
+	}
+
+	RecursiveReverse(&rest);
+
+	/* Reverse Node */
+	cur -> next -> next = cur;
+	cur -> next = NULL;
+
+	/* RecursiveReverse(&rest) 에서 return 된 마지막 값인 4가 더 이상 갱신되지 않고 최종 ptrHead가 된다. (주소 입력 때문) */
+	* ptrHead = rest;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
