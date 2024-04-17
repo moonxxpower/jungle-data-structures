@@ -89,9 +89,36 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* print the post-order traversal of a binary search tree using a stack */
 void postOrderIterativeS1(BSTNode *root)
 {
-	 /* add your code here */
+	Stack s;
+	s.top = NULL;
+
+	BSTNode * cur = root;
+	BSTNode * prev = NULL;	// 이전 방문 노드 추적
+
+	if (root == NULL) {
+		return;
+	}
+
+	while (cur != NULL || !isEmpty(&s)) {
+		if (cur != NULL) {
+			push(&s, cur);
+			cur = cur -> left;
+		} else {
+			BSTNode * temp = peek(&s) -> right;
+
+			if (temp == NULL || temp == prev) {
+				temp = pop(&s);
+				printf("%d ", temp -> item);
+				prev = temp;
+			} else {
+				cur = temp;
+			}
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
