@@ -110,9 +110,25 @@ int main()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* reverse a queue using a stack */
 void reverse(Queue *q)
 {
-/* add your code here */
+	Stack s;
+
+    s.ll.head = NULL;
+	s.ll.size = 0;
+	s.ll.tail = NULL;
+
+	while ((q -> ll).size > 0) {
+		int a = dequeue(q);
+		push(&s, a);
+	}
+
+	while (s.ll.size > 0) {
+		int a = pop(&s);
+		enqueue(q, a);
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
