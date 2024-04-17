@@ -91,10 +91,33 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* print a level-by-level traversal of the binary tree using a queue */
 void levelOrderTraversal(BSTNode* root)
 {
+	Queue q;
 
-    /* add your code here */
+	q.head = NULL;
+	q.tail = NULL;
+
+	if (root == NULL) {
+		return;
+	}
+
+	enqueue(&(q.head), &(q.tail), root);
+
+	while (!isEmpty(q.head)) {
+		BSTNode * cur = dequeue(&(q.head), &(q.tail));
+		printf("%d ", cur -> item);
+
+		if (cur -> left != NULL) {
+			enqueue(&(q.head), &(q.tail), cur -> left);
+		}
+
+		if (cur -> right != NULL) {
+			enqueue(&(q.head), &(q.tail), cur -> right);
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
