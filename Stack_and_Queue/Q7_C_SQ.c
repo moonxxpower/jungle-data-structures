@@ -102,9 +102,58 @@ int main()
 }
 
 ////////////////////////////////////////////////////////////
+
+/* add your code here */
+/* an expression comprised of the characters () [] {} is balanced */
 int balanced(char *expression)
 {
-/* add your code here */
+	Stack s;
+
+    s.ll.head = NULL;
+	s.ll.size = 0;
+
+	// expression의 길이 구하기 (문자열은 배열에 저장되고, 마지막에 '\0'가 저장된다.)
+	int count = 0;
+
+	while (expression[count] != '\0')
+    {
+        count++;
+    }
+
+	// expression의 여는 괄호만 stack에 넣기
+	for (int i = 0; i < count; i++) {
+		if (expression[i] == '{' || expression[i] == '(' || expression[i] == '[') {
+			push(&s, expression[i]);
+		}
+	}
+
+	// peek을 사용해 stack에 저장된 여는 괄호를 하나씩 꺼내고, 짝이 맞는 괄호가 expression에 있다면, 해당 괄호 삭제하기
+	for (int i = 0; i < count; i++) {
+		int a = peek(&s);
+
+		if (a == '{') {
+			if (expression[i] == '}') {
+				pop(&s);
+			}
+		}
+		if (a == '(') {
+			if (expression[i] == ')') {
+				pop(&s);
+			}
+		}
+		if (a == '[') {
+			if (expression[i] == ']') {
+				pop(&s);
+			}
+		}
+	}
+
+	// stack에 저장된 괄호가 없으면 balanced, 아니면 not balanced
+	if (isEmptyStack(&s)) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 ////////////////////////////////////////////////////////////
