@@ -100,9 +100,36 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* print the values stored in all nodes of a binary tree that have at least one great-grantchild */
+/* 증손자가 있는 모든 노드 찾기 */
 int hasGreatGrandchild(BTNode *node)
 {
-	/* add your code here */
+    int depth = 0;
+
+    if (node == NULL) {
+        return -1; 
+    }
+
+    int leftDepth = 1 + hasGreatGrandchild(node -> left);
+    int rightDepth = 1 + hasGreatGrandchild(node -> right);
+
+    if (leftDepth > rightDepth) {
+        depth = leftDepth;
+
+        if (depth >= 3) {
+            printf("%d", node -> item);
+        }
+
+    } else {
+        depth = rightDepth;
+
+        if (depth >= 3) {
+            printf("%d", node -> item);
+        }
+    }
+
+    return depth;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
