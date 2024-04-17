@@ -107,9 +107,19 @@ int main()
 
 ////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* reverse the order of items stored in a queue of integers */
 void recursiveReverse(Queue *q)
 {
-/* add your code here */
+	int temp;
+
+	if ((q -> ll).head == NULL) {
+		return;
+	}
+
+	temp = dequeue(q);
+	recursiveReverse(q);
+	enqueue(q, temp);
 }
 
 //////////////////////////////////////////////////////////////////
