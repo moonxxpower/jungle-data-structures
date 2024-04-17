@@ -88,9 +88,28 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* print the in-order traversal of a binary search tree using a stack */
 void inOrderTraversal(BSTNode *root)
 {
-	 /* add your code here */
+	Stack s;
+	s.top = NULL;
+
+	BSTNode * cur = root;
+
+	if (root == NULL) {
+		return;
+	}
+
+	while (cur != NULL || !isEmpty(&s)) {
+		while (cur != NULL) {
+			push(&s, cur);
+			cur = cur -> left;
+		}
+		cur = pop(&s);
+		printf("%d ", cur -> item);
+		cur = cur -> right;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
