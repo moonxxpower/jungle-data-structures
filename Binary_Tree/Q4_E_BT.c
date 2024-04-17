@@ -100,10 +100,19 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* return the sum of all odd numbers in the tree */
 int sumOfOddNodes(BTNode *node)
-
 {
-    /* add your code here */
+    if (node == NULL) {
+        return 0;
+    }
+
+    else if ((node -> item) % 2 == 1) {
+        return sumOfOddNodes(node -> right) + sumOfOddNodes(node -> left) + (node -> item);
+    }
+
+    return sumOfOddNodes(node -> right) + sumOfOddNodes(node -> left);
 }
 
 //////////////////////////////////////////////////////////////////////////////////
