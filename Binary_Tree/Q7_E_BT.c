@@ -100,9 +100,28 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* return the smallest value stored in a given tree */
 int smallestValue(BTNode *node)
 {
-	/* add your code here */
+    // int 형으로 반환해야 되기 때문에 큰 값으로 return 되게 하기
+    if (node == NULL) {
+        return 2147483647;
+    }
+
+    int min = node -> item;
+
+    int leftMin = smallestValue(node -> left);
+    if (leftMin < min) {
+        min = leftMin;
+    }
+
+    int rightMin = smallestValue(node -> right);
+    if (rightMin < min) {
+        min = rightMin;
+    }
+
+    return min;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
