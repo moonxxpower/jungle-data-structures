@@ -94,10 +94,25 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* return the number of links along the longest path from the root node to the farthest leaf node */
 int maxHeight(BTNode *node)
-
 {
-    /* add your code here */
+    int max(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
+    int height = 0;
+
+    if (node == NULL) {
+        return -1;
+    }
+
+    else {
+        height = 1 + max(maxHeight(node -> left), maxHeight(node -> right));
+    }
+    
+    return height;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
