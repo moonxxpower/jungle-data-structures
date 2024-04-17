@@ -89,9 +89,32 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* print the pre-order traversal of a binary search tree using a stack */
 void preOrderIterative(BSTNode *root)
 {
-	 /* add your code here */
+	Stack s;
+	s.top = NULL;
+
+	if (root == NULL) {
+		return;
+	}
+
+	push(&s, root);
+
+	while (!isEmpty(&s)) {
+		BSTNode * cur = pop(&s);
+
+		printf("%d ", cur -> item);
+
+		if (cur -> right != NULL) {
+			push(&s, cur -> right);
+		}
+
+		if (cur -> left != NULL) {
+			push(&s, cur -> left);
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
