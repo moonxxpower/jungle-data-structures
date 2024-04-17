@@ -109,9 +109,27 @@ int main()
 
 ////////////////////////////////////////////////////////////
 
+/* add your code here */
+/* pop all values off a stack of integers until the first occurrence of the chosen value */
 void removeUntil(Stack *s, int value)
 {
-/* add your code here */
+	int index = 0;
+
+	ListNode * cur;
+	cur = (s -> ll).head;
+
+	for (int i = 0; i < (s -> ll).size; i++) {
+		if (value == cur -> item) {
+			break;
+		}
+
+ 		cur = cur -> next;
+		index++;
+	}
+
+	for (int i = 0; i < index; i++) {
+		pop(s);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////
